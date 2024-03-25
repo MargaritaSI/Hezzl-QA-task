@@ -2,7 +2,7 @@
 Postman, SQL, test cases
 >тз https://docs.google.com/document/d/1jhegfPcimR3HQHeqiGzDlKKEQtD0tZWOX6_TJn-KwUc/edit?clckid=c73d15e1
 
-**1. В POSTMAN созданы 2 коллекции, для запуска в POSTMAN нужно скачать и запустить файлы "(https://github.com/MargaritaSI/Hezzl-QA-task/edit/main/README.md#:~:text=Hezzlmania-,INIT,-.postman_collection.json)" "https://github.com/MargaritaSI/Hezzl-QA-task/edit/main/README.md#:~:text=INIT.postman_collection.json-,Hezzlmania,-LOGIN.postman_collection.json" **
+**1. В POSTMAN созданы 2 коллекции, для запуска в POSTMAN нужно скачать и запустить файлы "Hezzlmania INIT.postman_collection.json", "Hezzlmania INIT.postman_collection.json" **
 КОЛЛЕКЦИЯ INIT  
 Метод Init  
 КОЛЛЕКЦИЯ LOGIN  
