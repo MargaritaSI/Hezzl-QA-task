@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "bdb012a3-2480-4514-a81e-8ffa32c7d003",
+		"name": "Hezzlmania INIT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24105768"
+	},
+	"item": [
+		{
+			"name": "Init",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has timeZone\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"timeZone\", jsonData.time);",
+							"    pm.expect(jsonData).to.have.property(\"time\");",
+							"});",
+							"",
+							"pm.test(\"Response has data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"data\");",
+							"});",
+							"",
+							"pm.test(\"Data has auth\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.have.property(\"auth\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gw/v1/game/{{campaignId}}/init\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gw",
+						"v1",
+						"game",
+						"{{campaignId}}",
+						"init\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

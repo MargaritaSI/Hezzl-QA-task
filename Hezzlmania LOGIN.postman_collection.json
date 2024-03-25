@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "9a4f22ad-0d9e-4801-bbef-3f1bd35a2154",
+		"name": "Hezzlmania LOGIN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24105768"
+	},
+	"item": [
+		{
+			"name": "CheckLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Response has accessToken\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"accessToken\", jsonData.accessToken);",
+							"    pm.expect(jsonData).to.have.property(\"accessToken\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"login\": \"{{email}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/v1/game/{{campaignId}}/check-login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"v1",
+						"game",
+						"{{campaignId}}",
+						"check-login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfirmCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/v1/game/{{campaignId}}/confirm-code",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"v1",
+						"game",
+						"{{campaignId}}",
+						"confirm-code"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
